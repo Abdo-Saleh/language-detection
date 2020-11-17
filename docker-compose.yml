@@ -1,0 +1,18 @@
+version: '2'
+services: 
+ language-detection:
+  build: .
+  volumes: 
+   - .:/usr/src/app
+  ports:
+   - 5005:5005
+  environment:
+   - ALLOWED_DEVICES=["test-id"]
+   - AUTH_TOKEN=besttokenever
+  networks:
+   - lang-net
+
+networks:
+ lang-net:
+  driver: "bridge"
+
